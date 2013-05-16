@@ -3,7 +3,7 @@
   "description": "My Example Calculator",
   "launch_path": "/",
   "icons": {
-    "128": "/img/icon-128.png"
+    "128": "/img/icon_128.png"
   },
   "developer": {
     "name": "Hyunwoo Kang",
