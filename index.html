@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Minimal AppLaud App</title>
+
+	<link rel="stylesheet" href="jquery.mobile-1.3.1.css" />
+	<script src="jquery-1.9.1.js"></script>
+	<script src="jquery.mobile-1.3.1.js"></script>
+	<script type="text/javascript" charset="utf-8">
+var viewValue=0.0;
+var tempValue=0.0;
+var type=0;
+
+function btnNumber(num) {
+	viewValue *= 10;
+	viewValue += num;
+	$("#message").text(viewValue);
+}
+	
+function btnClear() {
+	viewValue = 0;
+	$("#message").text(viewValue);
+}
+	
+function btnPlus() {
+	tempValue = viewValue;
+	viewValue = 0;
+	type = 1;
+}
+
+function btnMinus() {
+	tempValue = viewValue;
+	viewValue = 0;
+	type = 2;
+}
+	
+function btnMulti() {
+	tempValue = viewValue;
+	viewValue = 0;
+	type = 3;
+}
+	
+function btnDivide() {
+	tempValue = viewValue;
+	viewValue = 0;
+	type = 4;
+}
+
+function btnEqual() {
+	if( type == 1 ) {
+		viewValue = tempValue + viewValue;
+	} else if( type == 2 ) {
+		viewValue = tempValue - viewValue;
+	} else if( type == 3 ) {
+		viewValue = tempValue * viewValue;
+	} else {
+		viewValue = tempValue / viewValue;
+	}
+		
+	tempValue = 0;
+	type = 0;
+	$("#message").text(viewValue);
+}
+</script>
+<style type="text/css">
+#message {
+	background-color: #FFD;
+	border: 1px solid #999999;
+	display: block;
+	font-weight: bold;
+	margin: 10px;
+	padding: 12px 10px;
+}
+</style>
+</head>
+<body onload="init();" id="stage" class="theme">
+	<p><label id="message">0.</label></p>
+	<div class="ui-grid-c">
+		<div class="ui-block-a">
+			<div data-role="button" onclick="btnNumber(7);">7</div>
+		</div>
+		<div class="ui-block-b">
+			<div data-role="button" onclick="btnNumber(8);">8</div>
+		</div>
+		<div class="ui-block-c">
+			<div data-role="button" onclick="btnNumber(9);">9</div>
+		</div>
+		<div class="ui-block-d">
+			<div data-role="button" onclick="btnDivide();">/</div>
+		</div>
+		<div class="ui-block-a">
+			<div data-role="button" onclick="btnNumber(4);">4</div>
+		</div>
+		<div class="ui-block-b">
+			<div data-role="button" onclick="btnNumber(5);">5</div>
+		</div>
+		<div class="ui-block-c">
+			<div data-role="button" onclick="btnNumber(6);">6</div>
+		</div>
+		<div class="ui-block-d">
+			<div data-role="button" onclick="btnMulti();">*</div>
+		</div>
+		<div class="ui-block-a">
+			<div data-role="button" onclick="btnNumber(1);">1</div>
+		</div>
+		<div class="ui-block-b">
+			<div data-role="button" onclick="btnNumber(2);">2</div>
+		</div>
+		<div class="ui-block-c">
+			<div data-role="button" onclick="btnNumber(3);">3</div>
+		</div>
+		<div class="ui-block-d">
+			<div data-role="button" onclick="btnMinus();">-</div>
+		</div>
+		<div class="ui-block-a">
+			<div data-role="button" onclick="btnNumber(0);">0</div>
+		</div>
+		<div class="ui-block-b">
+			<div data-role="button" onclick="btnClear();">Clr</div>
+		</div>
+		<div class="ui-block-c">
+			<div data-role="button" onclick="btnEqual();">==</div>
+		</div>
+		<div class="ui-block-d">
+			<div data-role="button" onclick="btnPlus();">++</div>
+		</div>
+	</div>
+</body>
+</html>
